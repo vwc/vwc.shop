@@ -23,12 +23,12 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 
 from Products.statusmessages.interfaces import IStatusMessage
 
-from chromsystems.shop.utils import get_cart
+from vwc.shop.utils import get_cart
 
-from chromsystems.shop.interfaces import ICSShopSettings
-from chromsystems.shop.interfaces import ICartUpdaterUtility
+from vwc.shop.interfaces import IVWCShopSettings
+from vwc.shop.interfaces import ICartUpdaterUtility
 
-from chromsystems.shop import MessageFactory as _
+from vwc.shop import MessageFactory as _
 
 
 class CheckoutForm(grok.View):
@@ -205,7 +205,7 @@ class Checkout(grok.View):
 
     def _payment_settings(self):
         registry = getUtility(IRegistry)
-        settings = registry.forInterface(ICSShopSettings)
+        settings = registry.forInterface(IVWCShopSettings)
         processor = settings.paypal_url
         info = {}
         info['shop_url'] = settings.shop_url

@@ -1,0 +1,445 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-25 16:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: vwc.shop\n"
+
+#: ./../shoppingcart.py:67
+msgid "%s cart items successfully updated"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:42
+msgid "&nbsp;"
+msgstr ""
+
+#: ./../shoppingcart.py:158
+msgid "Add item to cart executed: %s %s "
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:91
+msgid "Add product"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:90
+msgid "Add products to your cart by entering the order numbers."
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:111
+msgid "Additional information"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:157
+#: ./../address_templates/addressshipping.pt:158
+#: ./../checkout_templates/checkoutform.pt:159
+msgid "Address 1"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:178
+#: ./../address_templates/addressshipping.pt:179
+#: ./../checkout_templates/checkoutform.pt:180
+msgid "Address 2"
+msgstr ""
+
+#: ./../address.py:247
+msgid "Address details successfully updated"
+msgstr ""
+
+#: ./../address.py:72
+msgid "Billing address successfully updated"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:268
+msgid "Buy now"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:95
+#: ./../address_templates/addressbilling.pt:248
+#: ./../address_templates/addressshipping.pt:244
+msgid "Cancel"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:75
+msgid "Change"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:16
+msgid "Checkout Preview"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:113
+msgid "Checkout cart"
+msgstr ""
+
+#: ./../checkout.py:192
+msgid "Chromsystems Shop: %s"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:111
+#: ./../address_templates/addressshipping.pt:112
+#: ./../checkout_templates/checkoutform.pt:113
+msgid "City"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:81
+msgid "Clear cart"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:126
+msgid "Comment"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:323
+msgid "Comments"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:94
+msgid "Contact details"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:376
+msgid "Contact person first name"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:395
+msgid "Contact person last name"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:27
+msgid "Continue shopping"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:201
+#: ./../address_templates/addressshipping.pt:202
+#: ./../checkout_templates/checkoutform.pt:203
+msgid "Country"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:65
+msgid "Delete"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:89
+msgid "Direct order"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:552
+msgid "Discard changes"
+msgstr ""
+
+#: ./../shoppingcart_templates/cartremoveitem.pt:21
+msgid "Do you really want to delete ${DYNAMIC_CONTENT} from the shopping cart?"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:33
+#: ./../checkout_templates/checkoutform.pt:265
+msgid "E-Mail"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:104
+msgid "E-mail:"
+msgstr ""
+
+#: ./../interfaces.py:82
+msgid "Email Order"
+msgstr ""
+
+#: ./../checkout.py:191
+msgid "Enquiry"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:358
+msgid "Enter alternative shipping address"
+msgstr ""
+
+#: ./../interfaces.py:71
+msgid "Enter shop email address that will recieve order mail from customers"
+msgstr ""
+
+#: ./../interfaces.py:60
+msgid "Enter your PayPal sandbox account key. This is usually an E-mail address"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:225
+msgid "Fedex account number"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:117
+msgid "Fedex number"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:36
+#: ./../address_templates/addressshipping.pt:36
+#: ./../checkout_templates/checkoutform.pt:38
+msgid "First name"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:245
+msgid "I have read and accepted the general terms and conditions."
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:86
+#: ./../address_templates/addressshipping.pt:86
+#: ./../checkout_templates/checkoutform.pt:88
+msgid "Institution"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:15
+#: ./../address_templates/addressbilling.pt:15
+#: ./../checkout_templates/checkout.pt:25
+msgid "Invoice address"
+msgstr ""
+
+#: ./../shoppingcart.py:181
+msgid "Item could not be removed from the shopping cart. Please try again. If the error should persist, please contact the shop owner"
+msgstr ""
+
+#: ./../shoppingcart.py:188
+msgid "Item has been removed from the shopping cart"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:61
+#: ./../address_templates/addressshipping.pt:61
+#: ./../checkout_templates/checkoutform.pt:63
+msgid "Last name"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:129
+msgid "No comment provided"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:75
+#: ./../address_templates/addressbilling.pt:225
+#: ./../address_templates/addressshipping.pt:226
+msgid "Note"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:22
+msgid "Notice"
+msgstr ""
+
+#: ./../checkout.py:189
+msgid "Order"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:173
+#: ./../shoppingcart_templates/shopppingcart.pt:39
+msgid "Order no."
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:163
+msgid "Order/quotation summary"
+msgstr ""
+
+#: ./../interfaces.py:59
+msgid "PayPal Sandbox Key"
+msgstr ""
+
+#: ./../interfaces.py:53
+msgid "Paypal Merchant Key"
+msgstr ""
+
+#: ./../interfaces.py:65
+msgid "Paypal Website Payments Server"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:55
+#: ./../checkout_templates/checkoutform.pt:287
+msgid "Phone"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:100
+msgid "Phone:"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:77
+#: ./../checkout_templates/checkoutform.pt:309
+msgid "Please double check that you have entered your e-mail-address correctly. We will send order/quotation information to it."
+msgstr ""
+
+#: ./../address_templates/addressshipping.pt:222
+msgid "Please enter an alternative shipping address"
+msgstr ""
+
+#: ./../interfaces.py:83
+msgid "Please enter optional email order url (relative to the site root. Leave empty for the default form"
+msgstr ""
+
+#: ./../interfaces.py:77
+msgid "Please enter relative URL to the shop content"
+msgstr ""
+
+#: ./../interfaces.py:54
+msgid "Please enter your PayPal merchant account key"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:221
+#: ./../checkout_templates/checkoutform.pt:242
+msgid "Please enter your address and contact information."
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:15
+msgid "Please fill out the form to order or get a quotation"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:174
+#: ./../shoppingcart_templates/shopppingcart.pt:40
+msgid "Product"
+msgstr ""
+
+#: ./../interfaces.py:66
+msgid "Production"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:532
+msgid "Provide an alternative shipping address for item delivery."
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:175
+#: ./../shoppingcart_templates/shopppingcart.pt:41
+msgid "Quantity"
+msgstr ""
+
+#: ./../shoppingcart.py:61
+msgid "Quantity must be given"
+msgstr ""
+
+#: ./../shoppingcart.py:214
+msgid "Remove item from cart executed. This is not yet implemented"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:278
+msgid "Request quotation"
+msgstr ""
+
+#: ./../checkout.py:170
+msgid "Required input missing"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:559
+msgid "Review checkout information"
+msgstr ""
+
+#: ./../interfaces.py:66
+msgid "Sandbox"
+msgstr ""
+
+#: ./../address_templates/addressbase.pt:102
+msgid "Save contact information"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:255
+msgid "Save invoice address"
+msgstr ""
+
+#: ./../address_templates/addressshipping.pt:251
+msgid "Save shipping address"
+msgstr ""
+
+#: ./../address_templates/addressshipping.pt:15
+#: ./../checkout_templates/checkout.pt:44
+msgid "Shipping address"
+msgstr ""
+
+#: ./../address.py:160
+msgid "Shipping address successfully updated"
+msgstr ""
+
+#: ./../interfaces.py:70
+msgid "Shop E-mail"
+msgstr ""
+
+#: ./../interfaces.py:76
+msgid "Shop URL"
+msgstr ""
+
+#: ./../shoppingcart_templates/cartremoveitem.pt:13
+#: ./../shoppingcart_templates/shopppingcart.pt:14
+msgid "Shopping Cart"
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:209
+msgid "Submit order/quotation inquiry"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:226
+#: ./../checkout_templates/checkoutform.pt:247
+msgid "The entered name and address will be stated as the recipient on your invoice if you use the direct order option on checkout."
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:537
+msgid "These fields are not stricly required. Please enter all necessary shipping details to ensure delivery."
+msgstr ""
+
+#: ./../address.py:44
+#: ./../checkout.py:59
+msgid "This field is required"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:75
+msgid "Update cart"
+msgstr ""
+
+#: ./../profiles/default/controlpanel.xml
+msgid "VWC Shop"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:230
+#: ./../checkout_templates/checkoutform.pt:251
+msgid "We will ship your order to the address provided unless you enter an alternative shipping address."
+msgstr ""
+
+#: ./../address_templates/addressshipping.pt:227
+msgid "We will ship your order to the address provided."
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:52
+msgid "We will ship your order to your invoice address"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:99
+msgid "You can choose later if you want to place an order or if you require a quotation."
+msgstr ""
+
+#: ./../checkout_templates/checkout.pt:223
+msgid "You can find the general terms and conditions"
+msgstr ""
+
+#: ./../checkout_templates/checkoutform.pt:342
+msgid "You can provide additional information and potential questions about your order or quotation inquiry."
+msgstr ""
+
+#: ./../checkout.py:160
+msgid "You need to accept that you have read and understood the terms of use."
+msgstr ""
+
+#: ./../checkout.py:202
+msgid "Your email has been forwarded."
+msgstr ""
+
+#: ./../shoppingcart.py:46
+msgid "Your shopping cart has successfully been purged"
+msgstr ""
+
+#: ./../shoppingcart_templates/shopppingcart.pt:24
+msgid "Your shopping cart is empty"
+msgstr ""
+
+#: ./../address_templates/addressbilling.pt:134
+#: ./../address_templates/addressshipping.pt:135
+#: ./../checkout_templates/checkoutform.pt:136
+msgid "Zipcode"
+msgstr ""
+
