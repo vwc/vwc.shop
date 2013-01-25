@@ -17,7 +17,8 @@
             i18n:translate="">Checkout Preview</h1>
         </div>
 
-      <div class="panel-content panel-whitespace">
+      <div class="panel-content panel-whitespace"
+        tal:condition="view/has_cart">
 
         <tal:address tal:define="data view/address_information">
           <div class="row-fluid">
