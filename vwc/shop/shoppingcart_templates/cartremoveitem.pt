@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="chromsystems.shop">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div id="shopping-cart">
+      <h1 class="documentFirstHeading"
+        i18n:translate="">Shopping Cart</h1>
+
+        <form tal:attributes="action request/URL"
+            method="post">
+            <tal:block tal:define="item view/cartitem">
+                <h2 i18n:translate="">
+                    Do you really want to delete
+                    <span tal:replace="item/title" />
+                    from the shopping cart?</h2>
+                <input type="text"
+                    name="item_uuid"
+                    id="item_uuid"
+                    tal:attributes="value item/uuid" />
+            </tal:block>
+            <div class="form-actions">
+                <input class="context"
+                    type="submit"
+                    name="form.button.Submit"
+                    i18n:translate=""
+                    value="Remove item" />
+            </div>
+        </form>
+
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

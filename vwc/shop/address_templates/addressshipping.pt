@@ -1,0 +1,263 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="chromsystems.shop">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div id="shopping-cart">
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="documentFirstHeading"
+            i18n:translate="">Shipping address</h1>
+        </div>
+
+      <div class="panel-content panel-whitespace">
+      <form tal:define="errors view/errors"
+        tal:attributes="action request/URL"
+        id="checkout-form"
+        method="post">
+        <div>
+
+          <div class="row-fluid">
+
+            <div class="span8">
+              <div class="well">
+                <div class="control-group field"
+                tal:define="error errors/shipping.firstname | nothing;
+                            err_msg python:error and error['active'] == True"
+                tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                <label class="control-label"
+                  for="shipping.firstname">
+                  <span i18n:translate="">First name</span>
+                  <span class="required"></span>
+                </label>
+                <div class="controls">
+                  <input
+                    type="text"
+                    class="input-xlarge"
+                    id="shipping.firstname"
+                    name="shipping.firstname"
+                    required="required"
+                    tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.firstname')" />
+                    <div class="help-block error"
+                      tal:condition="err_msg">
+                      <i class="icon-warning-sign" />
+                      <span tal:replace="python:error['msg']" />
+                    </div>
+                </div>
+                </div><!-- / firstname -->
+  
+                <div class="control-group field"
+                tal:define="error errors/shipping.lastname | nothing;
+                            err_msg python:error and error['active'] == True"
+                tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                <label class="control-label"
+                  for="shipping.lastname">
+                <span i18n:translate="">Last name</span>
+                <span class="required"></span>
+                </label>
+                <div class="controls">
+                  <input
+                    type="text"
+                    class="input-xlarge"
+                    id="shipping.lastname"
+                    name="shipping.lastname"
+                    required="required"
+                    tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.lastname')" />
+                    <div class="help-block error"
+                      tal:condition="err_msg">
+                      <i class="icon-warning-sign" />
+                      <span tal:replace="python:error['msg']" />
+                    </div>
+                </div>
+                </div><!-- /lastname -->
+
+                <div class="control-group field"
+                tal:define="error errors/shipping.institution | nothing;
+                            err_msg python:error and error['active'] == True"
+                tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                <label class="control-label"
+                  for="billing.institution">
+                <span i18n:translate="">Institution</span>
+                <span class="required"></span>
+                </label>
+                <div class="controls">
+                  <input
+                    type="text"
+                    class="input-xlarge"
+                    id="shipping.institution"
+                    name="shipping.institution"
+                    required
+                    tal:attributes="value python:error and view.default_value(error) or ''" />
+                    <div class="help-block error"
+                      tal:condition="err_msg">
+                      <i class="icon-warning-sign" />
+                      <span tal:replace="python:error['msg']" />
+                    </div>
+                </div>
+                </div><!-- /shipping.institution -->
+
+
+                <div class="control-group field"
+                  tal:define="error errors/shipping.city | nothing;
+                              err_msg python:error and error['active'] == True"
+                  tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                  <label class="control-label"
+                    for="shipping.city">
+                  <span i18n:translate="">City</span>
+                  <span class="required"></span>
+                  </label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge"
+                        id="shipping.city"
+                        name="shipping.city"
+                        required
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.city')" />
+                        <div class="help-block error"
+                        tal:condition="err_msg">
+                        <i class="icon-warning-sign" />
+                        <span tal:replace="python:error['msg']" />
+                      </div>
+                    </div>
+                </div><!-- / city -->
+
+                <div class="control-group field"
+                  tal:define="error errors/shipping.zipcode | nothing;
+                              err_msg python:error and error['active'] == True"
+                  tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                  <label class="control-label"
+                    for="shipping.zipcode">
+                  <span i18n:translate="">Zipcode</span>
+                  <span class="required"></span>
+                  </label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge"
+                        id="shipping.zipcode"
+                        name="shipping.zipcode"
+                        required
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.zipcode')" />
+                        <div class="help-block error"
+                        tal:condition="err_msg">
+                        <i class="icon-warning-sign" />
+                        <span tal:replace="python:error['msg']" />
+                      </div>
+                    </div>
+                </div><!-- /zipcode -->
+
+                <div class="control-group field"
+                  tal:define="error errors/shipping.address1 | nothing;
+                              err_msg python:error and error['active'] == True"
+                  tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                  <label class="control-label"
+                    for="shipping.address1">
+                  <span i18n:translate="">Address 1</span>
+                  <span class="required"></span>
+                  </label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge"
+                        id="shipping.address1"
+                        name="shipping.address1"
+                        required
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.address1')" />
+                        <div class="help-block error"
+                        tal:condition="err_msg">
+                        <i class="icon-warning-sign" />
+                        <span tal:replace="python:error['msg']" />
+                      </div>
+                    </div>
+                </div><!-- /address 1 -->
+
+                <div class="control-group field"
+                  tal:define="error errors/shipping.address2 | nothing;
+                              err_msg python:error and error['active'] == True"
+                  tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                  <label class="control-label"
+                    for="shipping.address2"
+                    i18n:translate="">Address 2</label>
+                    <div class="controls">
+                      <input type="text"
+                        class="input-xlarge"
+                        id="shipping.address2"
+                        name="shipping.address2"
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.address2')" />
+                        <div class="help-block error"
+                        tal:condition="err_msg">
+                        <i class="icon-warning-sign" />
+                        <span tal:replace="python:error['msg']" />
+                      </div>
+                    </div>
+                </div><!-- /address 2 -->
+
+                <div class="control-group field"
+                  tal:define="error errors/shipping.country | nothing;
+                              err_msg python:error and error['active'] == True"
+                  tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                  <label class="control-label"
+                    for="shipping.country">
+                  <span i18n:translate="">Country</span>
+                  <span class="required"></span>
+                  </label>
+                    <div class="controls">
+                      <input type="text"
+                        class="input-xlarge"
+                        id="shipping.country"
+                        name="shipping.country"
+                        required
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='shipping.country')" />
+                      <div class="help-block error"
+                          tal:condition="err_msg">
+                          <i class="icon-warning-sign" />
+                          <span tal:replace="python:error['msg']" />
+                        </div>
+                    </div>
+                </div><!-- /country -->
+              </div><!-- /well adress -->
+            </div>
+            <div class="span4">
+                <p class="lead" i18n:translate="">
+                Please enter an alternative shipping address
+                </p>
+                <h4><i class="icon-attention"></i>
+                  <span i18n:translate="">Note</span></h4>
+                <p i18n:translate="">We will ship your order to the address provided.
+                </p>
+            </div>
+          </div>
+            
+        <div>
+          <div class="visualClear">&nbsp;</div>
+
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+        <div class="visualClear">&nbsp;</div>
+        <div class="form-actions formControls">
+          <div class="row-fluid">
+            <div class="span6">
+              <a href="" class="btn btn-primary btn-large arrow-left"
+                tal:define="context_url context/absolute_url;
+                            txnid view/get_txnid"
+                tal:attributes="href python:context_url + '/@@checkout?txnid=' + txnid">
+                <span i18n:translate="">Cancel</span>
+              </a>
+            </div>
+            <div class="span6">
+              <button type="submit"
+                name="form.button.Submit"
+                class="context btn btn-primary btn-large pull-right arrow-right">
+                  <span i18n:translate="">Save shipping address</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

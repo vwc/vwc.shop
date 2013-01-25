@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="vwc.shop"
+    purge="False">
+
+    <configlet
+        title="VWC Shop"
+        action_id="vwc-shop"
+        appId="vwc.shop"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@vwc-shop-settings"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

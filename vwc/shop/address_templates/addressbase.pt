@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="chromsystems.shop">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div id="shopping-cart">
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="documentFirstHeading"
+            i18n:translate="">Invoice address</h1>
+        </div>
+
+      <div class="panel-content panel-whitespace">
+      <form tal:define="errors view/errors"
+        tal:attributes="action request/URL"
+        id="checkout-form"
+        method="post">
+        <div class="row-fluid">
+            <div class="span8">
+                <div class="well">
+                  <div class="control-group field"
+                    tal:define="error errors/billing.email | nothing;
+                                err_msg python:error and error['active'] == True"
+                    tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                    <label class="control-label"
+                      for="billing.email">
+                    <span i18n:translate="">E-Mail</span>
+                    <span class="required"></span>
+                    </label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge"
+                        id="billing.email"
+                        name="billing.email"
+                        required="required"
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='billing.email')" />
+                        <div class="help-block error"
+                          tal:condition="err_msg">
+                          <i class="icon-warning-sign" />
+                          <span tal:replace="python:error['msg']" />
+                        </div>
+                    </div>
+                  </div><!-- / email -->
+                  <div class="control-group field"
+                    tal:define="error errors/billing.phone | nothing;
+                                err_msg python:error and error['active'] == True"
+                    tal:attributes="class python:err_msg and 'control-group error' or 'control-group'">
+                    <label class="control-label"
+                      for="billing.phone">
+                    <span i18n:translate="">Phone</span>
+                    <span class="required"></span>
+                    </label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge"
+                        id="billing.phone"
+                        name="billing.phone"
+                        required="required"
+                        tal:attributes="value python:error and view.default_value(error) or view.get_default(name='billing.phone')" />
+                        <div class="help-block error"
+                          tal:condition="err_msg">
+                          <i class="icon-warning-sign" />
+                          <span tal:replace="python:error['msg']" />
+                        </div>
+                    </div>
+                  </div><!-- / phone -->
+                </div><!-- /well email -->
+              </div>
+              <div class="span4">
+                <h5><i class="icon-attention"></i>
+                  <span i18n:translate="">Note</span></h5>
+                <p>
+                  <span i18n:translate="">
+                      Please double check that you have entered your e-mail-address
+                      correctly. We will send order/quotation information to it.
+                  </span>
+                </p>
+              </div>
+            </div>
+      <div class="visualClear">&nbsp;</div>
+
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+        <div class="visualClear">&nbsp;</div>
+        <div class="form-actions formControls">
+          <div class="row-fluid">
+            <div class="span6">
+              <a href="" class="btn btn-primary btn-large arrow-left"
+                tal:define="context_url context/absolute_url;
+                            txnid view/get_txnid"
+                tal:attributes="href python:context_url + '/@@checkout?txnid=' + txnid">
+                <span i18n:translate="">Cancel</span>
+              </a>
+            </div>
+            <div class="span6">
+              <button type="submit"
+                name="form.button.Submit"
+                class="context btn btn-primary btn-large pull-right arrow-right ">
+                  <span i18n:translate="">Save contact information</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="vwc.shop">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div id="shopping-cart" class="panel">
+      <div class="panel-header">
+        <h1 class="documentFirstHeading"
+        i18n:translate="">Shopping Cart</h1>
+      </div>
+
+     <div class="panel-content panel-whitespace"> 
+
+      <div class="alert alert-block alert"
+        tal:condition="not:view/has_cart">
+        <h4 class="alert-heading" i18n:translate="">
+          Notice</h4>
+        <p i18n:translate="">
+          Your shopping cart is empty</p>
+        <div class="btn-group">
+          <a href="" class="btn btn-primary btn-large"
+            tal:attributes="href python:context.absolute_url()"
+            i18n:translate="">
+            Continue shopping</a>
+        </div>
+      </div>
+
+    <tal:cart tal:condition="view/has_cart">
+      <form tal:attributes="action request/URL" method="post">
+      <table class="table table-condensed" style="width: 100%">
+        <thead>
+          <tr>
+            <th i18n:translate="">Order no.</th>
+            <th i18n:translate="">Product</th>
+            <th i18n:translate="">Quantity</th>
+            <th i18n:translate="">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody tal:define="cart view/cart">
+          <tr tal:repeat="item cart">
+            <td tal:content="item/oid" />
+            <td>
+              <strong>
+                <a href="" tal:attributes="href item/url"
+                   tal:content="item/title" />
+              </strong>
+              <span tal:condition="item/detail" class="discreet"
+                tal:content="item/detail" />
+            </td>
+             <td>
+              <input
+                type="text" class="span1" size="2"
+                tal:define="productuid item/uuid"
+                tal:attributes="name python:productuid + '.quantity';
+                                value item/quantity" />
+            </td>
+            <td tal:define="context_url context/absolute_url;
+                            item_uuid item/uuid">
+              <a href="#"
+                i18n:translate=""
+                tal:attributes="href python:context_url + '/@@cart-remove-item?item_uuid=' + item_uuid">
+                Delete
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="well well-small">
+         <input class="context"
+            type="submit"
+            name="form.button.Submit"
+            value="Update cart"
+            i18n:attributes="value"
+             />
+          <input class="context"
+            type="submit"
+            name="form.button.Clear"
+            value="Clear cart"
+            i18n:attributes="value"
+            />
+      </div>
+      <div class="well well-small">
+        <h4 i18n:translate="">Direct order</h4>
+        <p i18n:translate="">Add products to your cart by entering the order numbers.</p>
+        <a href="" tal:define="context_url context/absolute_url"
+          class="btn btn-primary popoverForm"
+          i18n:translate=""
+          tal:attributes="href python:context_url + '/@@direct-order'">
+          Add product
+        </a>
+      </div>
+      <div class="well alert">
+      <span i18n:translate="">You can choose later if you want to place an order or if you require a quotation.</span>
+    </div>
+      <span tal:replace="structure context/@@authenticator/authenticator"/>
+      <div class="form-actions">
+          <div class="row-fluid">
+            <div class="span6">
+              <a href="" class="btn btn-primary btn-large arrow-left"
+                tal:attributes="href python:context.absolute_url()">
+                <span i18n:translate="">Continue shopping</span>
+              </a>
+            </div>
+            <div class="span6">
+              <a href="" class="btn btn-primary btn-large pull-right arrow-right"
+                tal:attributes="href view/checkout_url">
+                <span i18n:translate="">Checkout cart</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </tal:cart>
+    </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

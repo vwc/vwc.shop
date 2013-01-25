@@ -1,0 +1,290 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="chromsystems.shop">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div id="shopping-cart"
+      tal:define="context_url context/absolute_url">
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="documentFirstHeading"
+            i18n:translate="">Checkout Preview</h1>
+        </div>
+
+      <div class="panel-content panel-whitespace">
+
+        <tal:address tal:define="data view/address_information">
+          <div class="row-fluid">
+            <div class="span6">
+              <h3 i18n:translate="">
+                Invoice address
+              </h3>
+              
+              <address>
+                <strong>
+                  <span tal:replace="data/billing.firstname" />
+                  <span tal:replace="data/billing.lastname" />
+                </strong><br>
+                <span tal:replace="data/billing.zipcode" />
+                <span tal:replace="data/billing.city" /><br />
+                <span tal:replace="data/billing.address1" />
+                <tal:block tal:condition="data/billing.address2">
+                  <br />
+                  <span tal:replace="data/billing.address2" /><br />
+                </tal:block>
+              </address>
+            </div>
+            <div class="span6">
+              <h3 i18n:translate="">
+                Shipping address
+              </h3>
+              <tal:shipping tal:define="display data/shipping.usage">
+                <div class="alert"
+                  tal:condition="not:display">
+                  <h4>
+                    <i class="icon-info"></i>
+                    <span i18n:translate="">We will ship your order to your invoice address</span>
+                  </h4>
+                </div>
+                <div tal:condition="display">
+                  <address>
+                    <strong>
+                      <span tal:replace="data/shipping.firstname" />
+                      <span tal:replace="data/shipping.lastname" />
+                    </strong><br>
+                    <span tal:replace="data/shipping.zipcode" />
+                    <span tal:replace="data/shipping.city" /><br />
+                    <span tal:replace="data/shipping.address1" />
+                    <tal:block tal:condition="data/shipping.address2">
+                      <br />
+                      <span tal:replace="data/shipping.address2" /><br />
+                    </tal:block>
+                  </address>
+                </div>
+              </tal:shipping>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="span6">
+              <a class="btn btn-small btn-primary"
+                i18n:translate=""
+                tal:attributes="href python:context_url + '/@@address-billing'">
+                Change
+              </a>
+            </div>
+            <div class="span6">
+              <a class="btn btn-small btn-primary"
+                i18n:translate=""
+                tal:attributes="href python:context_url + '/@@address-shipping'">
+                Change
+              </a>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="row-fluid">
+            <div class="span6">
+              <h3 i18n:translate="">
+                Contact details
+              </h3>
+              <table class="table table-condensed">
+                <tbody>
+                  <tr>
+                    <th i18n:translate="">Phone:</th>
+                    <td tal:content="data/billing.phone" />
+                  </tr>
+                  <tr>
+                    <th i18n:translate="">E-mail:</th>
+                    <td tal:content="data/billing.email" />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="span6">
+              <h3 i18n:translate="">
+                Additional information
+              </h3>
+              <table class="table table-condensed">
+                <tbody>
+                  <tr>
+                    <th i18n:translate="">Fedex number</th>
+                    <td><span tal:condition="data/fedex"
+                          tal:content="data/fedex" />
+                        <span tal:condition="not:data/fedex"
+                          class="muted">
+                          No fedex number provided</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th i18n:translate="">Comment</th>
+                    <td>
+                        <span tal:condition="data/comment" tal:replace="data/comment" />
+                        <span tal:condition="not:data/comment" i18n:translate=""
+                          class="muted">
+                          No comment provided
+                        </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span6">
+              <a class="btn btn-small btn-primary"
+                i18n:translate=""
+                tal:attributes="href python:context_url + '/@@address-base'">
+                Change
+              </a>
+            </div>
+            <div class="span6">
+              <a class="btn btn-small btn-primary"
+                i18n:translate=""
+                tal:attributes="href python:context_url + '/@@address-additional'">
+                Change
+              </a>
+            </div>
+          </div>
+
+        </tal:address>
+      
+      </div>
+    </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="documentFirstHeading"
+            i18n:translate="">Order/quotation summary</h1>
+        </div>
+
+      <div class="panel-content panel-whitespace">
+
+      <tal:cart tal:condition="view/has_cart">
+      <table class="listing" style="width: 100%">
+        <thead>
+          <tr>
+            <th i18n:translate="">Order no.</th>
+            <th i18n:translate="">Product</th>
+            <th i18n:translate="">Quantity</th>
+          </tr>
+        </thead>
+        <tbody tal:define="cart view/cart">
+          <tr tal:repeat="item cart">
+            <td tal:content="item/oid" />
+            <td>
+              <h5>
+                <a href="" tal:attributes="href item/url"
+                   tal:content="item/title" />
+              </h5>
+              <p class="muted" tal:condition="item/detail"
+                  tal:content="item/detail" />
+            </td>
+            <td tal:content="item/quantity" />
+          </tr>
+          <tr>
+            <td colspan="5">
+              <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/orderinformation" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </tal:cart>
+        <a class="btn btn-small btn-primary"
+          tal:define="context_url context/absolute_url"
+          i18n:translate=""
+          tal:attributes="href python:context_url + '/@@cart'">
+          Change
+        </a>
+      </div>
+    </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h1 class="documentFirstHeading"
+            i18n:translate="">Submit order/quotation inquiry</h1>
+        </div>
+
+      <div class="panel-content panel-whitespace">
+
+      <form tal:define="errors view/errors"
+        tal:attributes="action request/URL"
+        id="checkout-form"
+        method="post">
+
+        <div id="checkout-legal" class="visualClear"
+          tal:define="lang view/current_lang">
+          <p>
+            <span i18n:translate="">
+              You can find the general terms and conditions</span>
+            <a class="allert" href=""
+              tal:condition="python:lang == 'en'"
+              tal:attributes="href python:context_url + '/service-en/gtc/general-terms-and-conditions-of-sale.pdf'">
+              here</a>
+            <a class="allert" href=""
+              tal:condition="python:lang == 'de'"
+              tal:attributes="href python:context_url + '/service-de/Allgemeine_Verkaufsbedingungen.pdf'">
+              hier</a>
+          </p>
+        </div>
+
+      <div class="well">
+        <div class="control-group warning"
+          tal:define="error errors/terms-accept | nothing;"
+          tal:attributes="class python:error and 'control-group error' or 'control-group'">
+        <label class="checkbox inline">
+          <input type="checkbox"
+            id="terms-accept"
+            name="terms-accept"
+            value="True">
+          <span i18n:translate="">I have read and accepted the general terms and conditions.</span>
+        </label>
+        <div class="help-block error"
+          tal:condition="error">
+          <i class="icon-attention" />
+          <span tal:replace="error" />
+        </div>
+        </div>
+      </div>
+      <input
+        type="hidden"
+        id="txnid"
+        name="txnid"
+        tal:attributes="value request/txnid"
+        />
+      <span tal:replace="structure context/@@authenticator/authenticator"/>
+        <div class="form-actions formControls">
+          <div class="row-fluid">
+            <div class="span6 offset6">
+              <button type="submit"
+                name="form.button.Submit"
+                class="btn btn-primary btn-large pull-right arrow-right"
+                value="Order items">
+                <span i18n:translate="">Buy now</span>
+              </button>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="span6 offset6">
+              <button type="submit"
+                name="form.button.Enquiry"
+                class="btn btn-primary btn-large pull-right arrow-right"
+                value="Request quotation">
+                <span i18n:translate="">Request quotation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

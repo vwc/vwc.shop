@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="vwc.shopcontent"
+      metal:use-macro="context/main_template/macros/master">
+
+  <metal:block fill-slot="main">
+
+    <a href="javascript:this.print();" class="btn btn-primary pull-right">
+      <i class="icon-print icon-white" />
+      <span i18n:translate="">Print</span>
+    </a>
+
+    <h1 class="documentFirstHeading"
+      i18n:translate="">Thank you!</h1>
+
+    <p class="documentDescription" i18n:translate="">
+      Your order has been successfully processed.</p>
+
+    <div id="content-core">
+      <p tal:define="txn_id view/txn_id|nothing"
+         tal:condition="txn_id"
+         i18n:translate="">Transaction ID:
+         <span tal:replace="txn_id"
+            i18n:name="txn_id"/></p>
+      <p>
+        <span i18n:translate="">
+          If you have any questions about your order, please
+        </span>
+          <a tal:attributes="href string:${context/portal_url}/contact-info"
+            i18n:translate="">
+            contact us</a>.</p>
+    </div>
+
+  </metal:block>
+
+</html>
