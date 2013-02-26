@@ -150,14 +150,17 @@ class CartAddItem(grok.View):
     grok.name('cart-add-item')
 
     def update(self):
-        context = aq_inner(self.request)
+        context = aq_inner(self.context)
+        pstate = getMultiAdapter((context, self.request),
+                                 name=u"plone_portal_state")
+        self.portal_url = pstate.portal_url()
         self.context_url = context.absolute_url()
         item = self.request.get('item.uuid', None)
         qty = self.request.get('quantity', None)
         IStatusMessage(self.request).addStatusMessage(
             _(u"Add item to cart executed: %s %s ") % (item, qty),
             type="info")
-        redirect_url = self.context_url() + '/@@cart'
+        redirect_url = self.portal_url + '/@@cart'
         return self.request.response.redirect(redirect_url)
 
     def render(self):

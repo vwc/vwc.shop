@@ -9,7 +9,7 @@
 
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
-    <div id="shopping-cart" class="panel">
+    <div id="shopping-cart" class="panel container">
       <div class="panel-header">
         <h1 class="documentFirstHeading"
         i18n:translate="">Shopping Cart</h1>
@@ -17,7 +17,7 @@
 
      <div class="panel-content panel-whitespace"> 
 
-      <div class="alert alert-block alert"
+      <div class="alert"
         tal:condition="not:view/has_cart">
         <h4 class="alert-heading" i18n:translate="">
           Notice</h4>
@@ -33,7 +33,7 @@
 
     <tal:cart tal:condition="view/has_cart">
       <form tal:attributes="action request/URL" method="post">
-      <table class="table table-condensed" style="width: 100%">
+      <table class="table table-condensed cart-table" style="width: 100%">
         <thead>
           <tr>
             <th i18n:translate="">Order no.</th>
@@ -86,18 +86,10 @@
             />
       </div>
       <div class="well well-small">
-        <h4 i18n:translate="">Direct order</h4>
-        <p i18n:translate="">Add products to your cart by entering the order numbers.</p>
-        <a href="" tal:define="context_url context/absolute_url"
-          class="btn btn-primary popoverForm"
-          i18n:translate=""
-          tal:attributes="href python:context_url + '/@@direct-order'">
-          Add product
-        </a>
+        <h4 i18n:translate="">Voucher handler</h4>
+        <p class="lead">Add informational text describing the voucher
+          and discount process</p>
       </div>
-      <div class="well alert">
-      <span i18n:translate="">You can choose later if you want to place an order or if you require a quotation.</span>
-    </div>
       <span tal:replace="structure context/@@authenticator/authenticator"/>
       <div class="form-actions">
           <div class="row-fluid">
